@@ -8,8 +8,8 @@ Category.create(title: 'Ruby')
 Category.create(title: 'Rails')
 
 Test.create(title: 'Тест по SQL DDL', level: 1, category_id: 1)
-Test.create(title: 'Тест по SQL DML', level: 2, category_id: 1)
-Test.create(title: 'Тест по SQL DQL', level: 2, category_id: 1)
+Test.create(title: 'Тест по SQL DML', level: 1, category_id: 1)
+Test.create(title: 'Тест по SQL DQL', level: 1, category_id: 1)
 Test.create(title: 'Тест по Ruby', level: 1, category_id: 2)
 Test.create(title: 'Тест по Rails', level: 3, category_id: 3)
 
