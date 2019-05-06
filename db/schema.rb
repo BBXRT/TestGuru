@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_200201) do
   create_table "passed_tests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "test_id"
+    t.integer "index"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
