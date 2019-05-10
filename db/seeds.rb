@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-user1 = User.create(name: 'Ivan')
+user1 = User.create(name: 'Ivan', email: 'abc@abc.com')
 
 cat1 = Category.create(title: 'SQL')
 cat2 = Category.create(title: 'Ruby')
@@ -21,8 +21,8 @@ q5 = Question.create(body: 'Что такое Rails', test_id: test5.id)
 
 a1 = Answer.create(body: 'Не знаю', question_id: q1.id, correct: true)
 
-PassedTest.create(user_id: 1, test_id: test1.id)
-PassedTest.create(user_id: 1, test_id: test2.id)
-PassedTest.create(user_id: 1, test_id: test3.id)
-PassedTest.create(user_id: 1, test_id: test4.id)
-PassedTest.create(user_id: 1, test_id: test5.id)
+PassedTest.create(user_id: user1.id, test_id: test1.id)
+PassedTest.create(user_id: user1.id, test_id: test2.id)
+PassedTest.create(user_id: user1.id, test_id: test3.id)
+PassedTest.create(user_id: user1.id, test_id: test4.id)
+PassedTest.create(user_id: user1.id, test_id: test5.id)
