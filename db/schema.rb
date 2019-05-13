@@ -45,12 +45,14 @@ ActiveRecord::Schema.define(version: 2019_05_04_200201) do
     t.string "title", null: false
     t.integer "level", default: 1, null: false
     t.integer "category_id"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
+    t.string "email", null: false
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
