@@ -17,7 +17,8 @@ q1 = Question.create(body: 'Для чего используется коман�
 q2 = Question.create(body: 'Для чего используется команда INSERT?', test_id: test2.id)
 q3 = Question.create(body: 'Для чего используется команда SELECT?', test_id: test3.id)
 q4 = Question.create(body: 'Что такое Ruby?', test_id: test4.id)
-q5 = Question.create(body: 'Что такое Rails', test_id: test5.id)
+q5 = Question.create(body: 'Что такое Rails?', test_id: test5.id)
+q6 = Question.create(body: 'Зачем нужен Rails?', test_id: test5.id)
 
 a1 = Answer.create(body: 'Не знаю', question_id: q1.id, correct: true)
 
