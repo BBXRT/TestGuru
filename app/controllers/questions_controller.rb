@@ -1,13 +1,13 @@
 class QuestionsController < ApplicationController
 
   def index
-    @result = Question.all_by_test_id(params[:test_id].to_i).pluck(:body)
-    render inline: 'Вопросы теста: <%= @result.join(" ") %>'
+    # @result = Question.all_by_test_id(params[:test_id].to_i).pluck(:body)
+    # render inline: 'Вопросы теста: <%= @result.join(" ") %>'
   end
 
   def show
     @result = Question.all_by_test_id(params[:test_id].to_i).pluck(:body)
-    render inline: '<%= @result[params[:id].to_i - 1] %>'
+    render inline: '<%= params %>'
   end
 
   def create
@@ -17,8 +17,11 @@ class QuestionsController < ApplicationController
     render plain: 'Вопрос создан'
   end
 
-  def delete
-    render plain: 'Deeeeeelete'
+  def destroy
+    #render inline: '<%= params %>'
+    render plain: 'deeeeleeeeeteeeed'
+    # @question = Question.find(params[:id])
+    # @question.destroy
   end
 
   def new
