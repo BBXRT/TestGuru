@@ -1,31 +1,37 @@
 class QuestionsController < ApplicationController
 
+  before_action :select_test_id
+
   def index
-    # @result = Question.all_by_test_id(params[:test_id].to_i).pluck(:body)
-    # render inline: 'Вопросы теста: <%= @result.join(" ") %>'
   end
 
   def show
-    @result = Question.all_by_test_id(params[:test_id].to_i).pluck(:body)
-    render inline: '<%= params %>'
+    begin
+      @result = Question.find(params[:id].to_i)
+      render inline: '<%= @result.body %>'
+    rescue
+      render plain: 'Вопрос не найден'
+    end
+
   end
 
   def create
     body = params[:question][:body]
-    test_id = params[:test_id].to_i
-    Question.create(body: body, test_id: test_id)
+    Question.create(body: body, test_id: @test_id)
     render plain: 'Вопрос создан'
   end
 
   def destroy
-    #render inline: '<%= params %>'
-    render plain: 'deeeeleeeeeteeeed'
-    # @question = Question.find(params[:id])
-    # @question.destroy
+    render plain: 'Вопрос удалён!'
+    @question = Question.find(params[:id])
+    @question.destroy
   end
 
   def new
+  end
 
+  def select_test_id
+    @test_id = params[:test_id].to_i
   end
 
 end
