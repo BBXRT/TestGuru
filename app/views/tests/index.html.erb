@@ -5,7 +5,7 @@
   <% @tests.each do |test| %>
     <tr>
       <td><%= test.title %></td>
-      <td><%= button_to "Открыть", test_questions_path(test.id), id: 2, method: :get %></td>
+      <td><%= button_to "Открыть", test_questions_path(test.id), method: :get %></td>
 
     </tr>
   <% end %>
