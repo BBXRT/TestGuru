@@ -1,15 +1,8 @@
-<html>
-
-<head>
-</head>
-
-<body>
-
 <h1>Вопросы:</h1>
 
 <table>
 
-  <% Question.all_by_test_id(params[:test_id].to_i).each do |question| %>
+  <% @questions.each do |question| %>
     <tr>
       <td><%= question.body %></td>
 
@@ -18,8 +11,5 @@
     </tr>
   <% end %>
 
+  <td><%= button_to "Назад к списку вопросов", tests_path, method: :get %></td>
 </table>
-
-</body>
-
-</html>
