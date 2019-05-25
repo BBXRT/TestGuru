@@ -2,7 +2,7 @@
 
 <table>
 
-  <% @questions.each do |question|%>
+  <% @questions.each do |question| %>
     <tr>
       <td><%= question.body %></td>
 
@@ -10,6 +10,10 @@
 
     </tr>
   <% end %>
-
-  <td><%= button_to "Назад к списку вопросов", tests_path, method: :get %></td>
+  <tr>
+    <td><%= button_to "Создать вопрос", new_test_question_path, method: :get %></td>
+  </tr>
+  <tr>
+    <td><%= button_to "Назад к списку тестов", tests_path, method: :get %></td>
+  </tr>
 </table>
