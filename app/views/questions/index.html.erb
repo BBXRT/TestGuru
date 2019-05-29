@@ -1,0 +1,19 @@
+<h1>Вопросы:</h1>
+
+<table>
+
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.body %></td>
+
+      <td><%= button_to "Удалить", question_path(question), method: :delete %></td>
+
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= button_to "Создать вопрос", new_test_question_path, method: :get %></td>
+  </tr>
+  <tr>
+    <td><%= button_to "Назад к списку тестов", tests_path, method: :get %></td>
+  </tr>
+</table>
