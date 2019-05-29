@@ -1,4 +1,4 @@
-<h1>Вопросы:</h1>
+<h1><%= @test.title %>:</h1>
 
 <table>
 
@@ -6,8 +6,8 @@
     <tr>
       <td><%= question.body %></td>
 
+      <td><%= button_to "Показать", question_path(question), method: :get %></td>
       <td><%= button_to "Удалить", question_path(question), method: :delete %></td>
-
     </tr>
   <% end %>
   <tr>
@@ -15,5 +15,6 @@
   </tr>
   <tr>
     <td><%= button_to "Назад к списку тестов", tests_path, method: :get %></td>
+
   </tr>
 </table>
