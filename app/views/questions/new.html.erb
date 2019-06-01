@@ -8,8 +8,8 @@
 
 ********
 
-<%= form_with model: [@test, @question] do |form| %>
-  <%= form.label :body %>
-  <%= form.text_field :body %>
+<%= form_with(url: "/tests/#{params[:test_id]}/questions/#{params[:id]}", method: "post") do |form| %>
+  <%= form.text_field :body %> #этот инпут не работает'
+  <input type="text" name="question[body]" id="question-body"> # а этот работает, но не показывает сообщение о созданном воропсе
   <%= form.submit %>
 <% end %>
