@@ -1,4 +1,6 @@
 <h1><%= @test.title %>:</h1>
+<h1><%= @test.id %>:</h1>
+<%= params %>
 
 <table>
 
@@ -8,7 +10,8 @@
       <td><%=  @test%></td>
       <td><%=  pp @question%></td>
 
-      <td><%= button_to "Показать", question_path(question), method: :get %></td>
+      <td><%= button_to "Показать", question_path(question, @test), method: :get %></td>
+      <td><%= button_to "Редактировать", edit_question_path(question, @test), method: :get %></td>
       <td><%= button_to "Удалить", question_path(question), method: :delete %></td>
     </tr>
   <% end %>

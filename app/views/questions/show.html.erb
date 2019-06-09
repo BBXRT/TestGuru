@@ -1,4 +1,5 @@
 <%= @question.body %>
 <%= params %>
+<%= pp @test %>
 <%= button_to "Назад к списку тестов", tests_path, method: :get %>
 <td><%= button_to "Назад к списку вопросов", test_questions_path(params[:id]), method: :get %></td>
