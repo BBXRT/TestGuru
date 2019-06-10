@@ -17,19 +17,20 @@ class QuestionsController < ApplicationController
 
   def create
     body = params[:question][:body]
+    @test = Test.find(params[:test_id])
     Question.create(body: body, test_id: @test.id)
-    redirect_to test_questions_path
+
+    redirect_to test_questions_path(@test)
   end
 
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to test_questions
   end
 
   def new
-    @test = Test.new
-    redirect_to index
+    @test = Test.find(params[:test_id])
+    @question = Question.new(test: @test)
   end
 
   def select_test_id
@@ -37,7 +38,16 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    #render plain: '23'
+    @question = Question.find(params[:id])
+    @test = @question.test
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    @question.body = params['question']['body']
+
+    @question.save
+    redirect_to test_questions_path(@question.test)
   end
 
 end

@@ -1,11 +1,6 @@
-<h1>Новый вопрос (для "<%= test_title %>"):</h1>
+<h1><%= question_header %></h1>
 
-<%= form_with(url: "/tests/#{params[:test_id]}/questions/#{params[:id]}", method: "post") do |form| %>
-  <input type="text" name="question[body]" id="question-body">
+<%= form_with(model: [@test, @question], url: test_questions_path(@test), method: :post) do |form| %>
+  <%= form.text_field :body %>
   <%= form.submit %>
 <% end %>
-
-<%#= form_with(model: [@test, @question], url: test_questions_path(@test.id), method: :post) do |form| %>
-<!--  <input type="text" name="question[body]" id="question-body">-->
-  <%#= form.submit %>
-<%# end %>

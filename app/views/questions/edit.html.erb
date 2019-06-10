@@ -1,3 +1,8 @@
-<h1>EDIT</h1>
-<%=params %>
-<%= question %>
+<h1><%= question_header %></h1>
+
+<%= form_with(model: [@test, @question], url: question_path(@question), method: :patch) do |form| %>
+
+  <%= form.text_field :body %>
+  <%= form.submit %>
+
+<% end %>
