@@ -1,4 +1,11 @@
-<%= @question.body %>
+<h1><%= @question.body %></h1>
 <% params %>
 <%= button_to "Назад к списку тестов", tests_path, method: :get %>
 <td><%= button_to "Назад к списку вопросов", test_questions_path(params[:id]), method: :get %></td>
+
+<h2>Ответы:</h2>
+<%= link_to 'Новый ответ', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>

@@ -21,6 +21,7 @@ q5 = Question.create(body: 'Что такое Rails?', test_id: test5.id)
 q6 = Question.create(body: 'Зачем нужен Rails?', test_id: test5.id)
 
 a1 = Answer.create(body: 'Не знаю', question_id: q1.id, correct: true)
+a2 = Answer.create(body: 'ASDDASD', question_id: q2.id, correct: false )
 
 PassedTest.create(user_id: user1.id, test_id: test1.id)
 PassedTest.create(user_id: user1.id, test_id: test2.id)
