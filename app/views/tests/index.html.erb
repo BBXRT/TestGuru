@@ -5,8 +5,8 @@
   <% @tests.each do |test| %>
     <tr>
       <td><%= test.title %></td>
+      <td>(<%= pp Question.where(test_id: test.id).size %>)</td>
       <td><%= button_to "Открыть", test_questions_path(test.id), method: :get %></td>
-
     </tr>
   <% end %>
 </table>

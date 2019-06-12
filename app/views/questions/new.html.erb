@@ -1,7 +1,6 @@
-<h1>Новый вопрос:</h1>
+<h1><%= question_header %></h1>
 
-<form action="/tests/<%= params[:test_id] %>/questions/<%= params[:id] %>" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="text" name="question[body]" id="question-body">
-  <input type="submit" value="Создать">
-</form>
+<%= form_with(model: [@test, @question], url: test_questions_path(@test), method: :post) do |form| %>
+  <%= form.text_field :body %>
+  <%= form.submit %>
+<% end %>
