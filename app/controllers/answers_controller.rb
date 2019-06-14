@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: %i[show, edit, update, destroy]
 
   def show
+    @answer = Answer.find(params[:id])
   end
 
   def new
@@ -10,15 +11,17 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
   end
 
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
-      #redirect_to @answer, notice: 'Ответ успешно создан'
+      redirect_to @answer, notice: 'Ответ успешно создан'
+      #redirect_to answer_path(@answer)
     else
-      #render :new
-      render plain: 'qwe'
+      render :new
     end
   end
 
