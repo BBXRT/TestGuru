@@ -11,7 +11,6 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
   end
 
@@ -26,11 +25,8 @@ class AnswersController < ApplicationController
   end
 
   def update
-    if @answer.update(answer_params)
-      redirect_to @answer
-    else
-      render :edit
-    end
+    @answer.save
+    redirect_to @answer.question
   end
 
   def destroy

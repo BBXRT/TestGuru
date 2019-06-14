@@ -1,6 +1,8 @@
 <h1>Редактирование вопроса</h1>
 
-<%= form_with(model: [@question, @answer], local: true) do |form| %>
+<%#= form_with(model: [@question, @answer], local: true) do |form| %>
+<%= form_with(model: [@question, @answer], url: answer_path(@answer), method: :patch) do |form| %>
   <%= form.text_field :body %>
+  <%= form.text_field :correct %>
   <%= form.submit %>
 <% end %>
