@@ -3,7 +3,8 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: %i[show, edit, update, destroy]
 
   def show
-    @answer = Answer.find(params[:id])
+    #binding.pry
+    #@answer = Answer.find(params[:id])
   end
 
   def new
@@ -11,7 +12,7 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find(params[:id])
+   @answer = Answer.find(params[:id])
   end
 
   def create
@@ -41,6 +42,7 @@ class AnswersController < ApplicationController
     end
 
     def set_answer
+      binding.pry
       @answer = Answer.find(params[:id])
     end
 
