@@ -1,10 +1,8 @@
 class AnswersController < ApplicationController
   before_action :find_question, only: %i[new create]
-  before_action :set_answer, only: %i[show, edit, update, destroy]
+  before_action :set_answer, only: %i[show edit update destroy]
 
   def show
-    #binding.pry
-    #@answer = Answer.find(params[:id])
   end
 
   def new
@@ -12,20 +10,26 @@ class AnswersController < ApplicationController
   end
 
   def edit
-   @answer = Answer.find(params[:id])
+    @answer = Answer.find(params[:id])
+    pp @answer
+
+    @question = Question.find(params[:id])
+    @test = @question.test
   end
 
   def create
-    @answer = Answer.new(answer_params)
-    if @answer.save
-      redirect_to @answer, notice: 'Ответ успешно создан'
-      #redirect_to answer_path(@answer)
-    else
-      render :new
-    end
+    pp params
+    body = params[:answer][:body]
+    correct = params[:answer][:correct]
+    @question = Question.find(params[:question_id])
+    Answer.create(body: body, correct: correct, question_id: @question.id)
+    redirect_to question_path(@question)
   end
 
   def update
+    @answer = Answer.find(params[:id])
+    @answer.body = params['answer']['body']
+    @answer.correct = params['answer']['correct']
     @answer.save
     redirect_to @answer.question
   end
@@ -42,7 +46,6 @@ class AnswersController < ApplicationController
     end
 
     def set_answer
-      binding.pry
       @answer = Answer.find(params[:id])
     end
 
