@@ -11,7 +11,13 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-
+    @test_passage.accept!(params[:answer_ids])
+    # render :show
+    if @test_passage.completed?
+      redirect_to result_test_passages_path(@test_passage)
+    else
+      render :show
+    end
   end
 
   private
