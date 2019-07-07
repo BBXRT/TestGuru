@@ -18,6 +18,22 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def current_question_number
+    test.questions.where('id < ?', current_question.id).count + 1
+  end
+
+  def questions_count
+    test.questions.count
+  end
+
+  def check_result?
+    correct_answers_count >= 85
+  end
+
+  def correct_answers_count
+    (correct_questions * 100 / questions_count).round(2)
+  end
+
   private
 
   def before_validation_set_first_question

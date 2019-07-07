@@ -1,4 +1,6 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1>Прохождение теста "<%= @test_passage.test.title %>"</h1>
+
+<p>Вопрос <%= @test_passage.current_question_number %> / <%= @test_passage.questions_count %></p>
 
 <b>
   <%= @test_passage.current_question.body %>
@@ -14,3 +16,5 @@
 
   <p><%= form.submit 'Next' %></p>
 <% end %>
+
+<%= button_to "Назад к списку тестов", tests_path, method: :get %>

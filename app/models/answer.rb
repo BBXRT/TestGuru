@@ -8,8 +8,8 @@ class Answer < ApplicationRecord
   validate :validate_answer_count
 
   def validate_answer_count
-    # errors.add(:body) if question.answers.count > 3
-    1
+    errors.add(:body) if question.answers.count > 3
+    # 1
   end
 
 end
