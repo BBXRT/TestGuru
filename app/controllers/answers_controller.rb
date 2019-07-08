@@ -10,28 +10,24 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find(params[:id])
-    pp @answer
-
-    @question = Question.find(params[:id])
-    @test = @question.test
   end
 
   def create
-    pp params
-    body = params[:answer][:body]
-    correct = params[:answer][:correct]
-    @question = Question.find(params[:question_id])
-    Answer.create(body: body, correct: correct, question_id: @question.id)
-    redirect_to question_path(@question)
+    @answer = @question.answers.new(answer_params)
+
+    if @answer.save
+      redirect_to answer_path(@answer)
+    else
+      render :new
+    end
   end
 
   def update
-    @answer = Answer.find(params[:id])
-    @answer.body = params['answer']['body']
-    @answer.correct = params['answer']['correct']
-    @answer.save
-    redirect_to @answer.question
+    if @answer.update(answer_params)
+      redirect_to @answer
+    else
+      render :edit
+    end
   end
 
   def destroy

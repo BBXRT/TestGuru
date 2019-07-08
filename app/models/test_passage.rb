@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  GREATE_SCORE = 85
+
   def completed?
     current_question.nil?
   end
@@ -27,7 +29,7 @@ class TestPassage < ApplicationRecord
   end
 
   def check_result?
-    correct_answers_count >= 85
+    correct_answers_count >= GREATE_SCORE
   end
 
   def correct_answers_count
