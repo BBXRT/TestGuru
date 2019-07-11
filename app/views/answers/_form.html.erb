@@ -1,0 +1,24 @@
+<%#= form_with(model: answer, local: true) do |form| %>
+
+  <%# if answer.errors.any? %>
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+  <%# end %>
+
+<!--<div id="error_explanation">-->
+  <%#= form_with(model: [@question, @answer], local: true) do |form| %>
+<!--    <h2><%#= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>-->
+
+<!--    <ul>-->
+      <%# answer.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+      <%# end %>
+<!--    </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<%#= form_with(model: [@question, @answer], local: true) do |form| %>
+  <%#= form.text_field :body %>
+  <%#= form.submit %>
+<%# end %>

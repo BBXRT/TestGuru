@@ -21,9 +21,16 @@ q5 = Question.create(body: 'Что такое Rails?', test_id: test5.id)
 q6 = Question.create(body: 'Зачем нужен Rails?', test_id: test5.id)
 
 a1 = Answer.create(body: 'Не знаю', question_id: q1.id, correct: true)
+a2 = Answer.create(body: 'ASDDASD', question_id: q2.id, correct: false )
 
 PassedTest.create(user_id: user1.id, test_id: test1.id)
 PassedTest.create(user_id: user1.id, test_id: test2.id)
 PassedTest.create(user_id: user1.id, test_id: test3.id)
 PassedTest.create(user_id: user1.id, test_id: test4.id)
 PassedTest.create(user_id: user1.id, test_id: test5.id)
+
+TestPassage.create(user: user1, test: test1, current_question: q1, correct_questions: 1)
+# TestPassage.create(user_id: user1.id, test_id: test2.id)
+# TestPassage.create(user_id: user1.id, test_id: test3.id)
+# TestPassage.create(user_id: user1.id, test_id: test4.id)
+# TestPassage.create(user_id: user1.id, test_id: test5.id)

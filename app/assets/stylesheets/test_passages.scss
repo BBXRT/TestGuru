@@ -1,0 +1,16 @@
+// Place all the styles related to the test_passages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.passed_test_color {
+  color: green;
+}
+
+.failed_test_color {
+  color: red;
+}
+
+.test_result_percent {
+  font-size: 18px;
+  font-weight: bold;
+}

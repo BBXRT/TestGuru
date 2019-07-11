@@ -2,8 +2,11 @@ class Test < ApplicationRecord
 
   belongs_to :category
   has_one :author, class_name: "User", primary_key: :author_id
-  has_many :passed_tests
+  # has_many :passed_tests
   has_many :questions
+
+  has_many :test_passeges
+  has_many :users, through: :test_passeges
 
   scope :select_simple_tests, -> {where(:level => (0..1))}
   scope :select_middle_tests, -> {where(:level => (2..4))}
