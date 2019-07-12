@@ -2,7 +2,7 @@ require 'digest/sha1'
 
 class User < ApplicationRecord
 
-  include Auth
+  # include Auth
 
   has_many :tests, foreign_key: :author_id
 
