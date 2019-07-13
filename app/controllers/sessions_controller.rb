@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
 
   end
@@ -9,11 +10,17 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      redirect_to cookies[:request_path]
     else
       flash.now[:alert] = 'Неверная почта или пароль'
       render :new
     end
 
   end
+
+  def out
+    session[:user_id] = nil
+    redirect_to root_path
+  end
+
 end

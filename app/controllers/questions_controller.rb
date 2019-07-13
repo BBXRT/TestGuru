@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_action :select_test_id, only: [:create]
+  before_action :authenticate_user!
 
   def index
     @test = Test.find(params[:test_id])
