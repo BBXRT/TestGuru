@@ -1,6 +1,8 @@
 <%= form_with model: @user, local: true do |form| %>
 
-  <%#= render 'shared/errors', resource: @user %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
 
   <p>
     <%= form.label :email %>

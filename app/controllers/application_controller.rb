@@ -10,9 +10,8 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to login_path, alert: 'Неверная почта или пароль'
     end
-    cookies[:email] = current_user&.email
     cookies[:request_path] = request.path
-    cookies[:userid] = current_user&.id
+    # cookies[:userid] = current_user&.id
   end
 
   def current_user
