@@ -15,18 +15,20 @@
   <div class="site_title"><b><%= link_to 'GURU', root_path %></b></div>
 
   <div class="site_links">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <span class="nav user">Добро пожаловать, <b><%= current_user.name %></b>!</span>
-      <span><%= link_to 'Выйти', logout_path, method: :get %></span>
+      <span><%= link_to 'Выйти', destroy_user_session_path, method: :delete%></span>
     <% elsif %>
-      <span><%= link_to 'Регистрация', signup_path %></span>
-      <span><%= link_to 'Вход', login_path %></span>
+<!--      <span><%#= link_to 'Регистрация', signup_path %></span>-->
+<!--      <span><%#= link_to 'Вход', login_path %></span>-->
     <% end %>
   </div>
 
   <div class="clearfix"></div>
 
 </div>
+
+<%= render 'shared/flash' %>
 
 <%= yield %>
 

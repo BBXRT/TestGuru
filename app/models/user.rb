@@ -1,6 +1,10 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable
 
   CORRECT_EMAIL = /\A[a-z0-9]+[@]{1}[a-z0-9]+\z/.freeze
 
@@ -13,8 +17,6 @@ class User < ApplicationRecord
 
   validates :email, format: { with: CORRECT_EMAIL,
                                     message: "Неверный формат" }
-
-  has_secure_password
 
   def find_tests_by_level(level)
     Test.joins(:passed_tests).where(passed_tests: {user_id: self.id}, level: level).pluck(:title)
